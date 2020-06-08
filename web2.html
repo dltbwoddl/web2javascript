@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        h1 {
+          width: 50%;
+          border: 1px solid #4CAF50;
+        }
+        .js{width: 50%;
+          border: 1px solid #4CAF50; 
+          font-weight: bold;
+          color: blue;}
+        #first{color: green;}
+        span{color: black;}
+        </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-167448738-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-167448738-1');
+</script>
+<script>
+  function setlinkcolor(color){
+    var links = document.querySelectorAll('a');
+      var i = 0
+      while (i < links.length) {
+        links[i].style.color = color;
+        i += 1;
+      }
+  }
+  function setbodycolor(color){
+    document.querySelector('body').style.color = color;
+  }
+  function setbodybackgroundcolor(color){
+    document.querySelector('body').style.backgroundColor = color;
+  }
+  function nightfunction(self) {
+    var changetage = document.querySelector('body')
+    if (self.value === 'night') {
+      Body.setbackgroundcolor('black');
+      Body.setcolor('white');
+      self.value = 'day';
+      link.setcolor('white');
+      }
+
+     else {
+      Body.setbackgroundcolor('white');
+      Body.setcolor('black');
+      self.value = 'night';
+      link.setcolor('black');
+
+      }
+    }
+  
+</script>
+<title>WEB1-HTML</title>
+<meta charset="utf-8">
+</head>
+<body>
+    <h1 style="color: turquoise; background-color: coral;">js</h1>
+    
+   <input type="button" id="myBtn" value="night" onclick="
+  nightfunction(this)
+   ">
+
+<ol>
+    <li><a href="1.html">1</a></li>
+    <li><a href="2.html">2</a></li>
+    <li><a href="3.html">3</a></li>
+</ol>
+<input type="button" id="myBtn" value="night" onclick="
+nightfunction(this)
+   ">
+<p>
+    <span id="first" class="js">fhgjlsdkj</span> is my thing
+</p>
+</body>

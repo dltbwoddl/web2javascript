@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--객체는 정리 정돈의 수단이다.##서로 연관된 함수, 변수를 집단화해서 잘 정리정돈하기 위한 도구. 
+    객체는 폴더와 같은 것이다.
+    document또한 객체이다.
+    document.queryselector()
+    뒤에 queryselector는 메서드이다.
+    짧은 코드이러다고 딱 보았을 때 역할이 떠오르지 않는 코드는 함수로 한눈에 파악할 수 있으면 함수로 만들어주는 것이 좋다.
+    함수 이름 같으면 뒤에 것으로 덮어짐.
+    만약 1억 줄의 코드가 있다면 함수 이름 다 파악하는 것이 불가능하다. so 이름 지을 때 아주 구체적인 역할을 바로 파악할 수 있도록 하는 것이 좋다.
+    배열 순서 있이 데이터 저장 vs 객체 순서 없이 데이터 저장(다만 이름을 붙여 정리한다.)
+    .은 엑세스 오퍼레이터
+    파이썬의 딕셔너리 느낌이 강함.
+-->
+<h1>object</h1>
+<h2>create</h2>
+<script>
+    var coworkers = {
+        "programmer": "egoing",
+        "designer": "leezche"
+    };
+    document.write("programmet:" + coworkers.programmer + "<br>");
+    document.write("designer : " + coworkers.designer + "<br>");
+    coworkers.bookkeeper = "duru";
+    document.write("bookkeeper: " + coworkers.bookkeeper + "<br>");
+    coworkers["data scientist"] = "taeho";
+    document.write("data scientist: " + coworkers["data scientist"] + "<br>");
+</script>
+<h2>iterator</h2>
+<script>
+    for (let key in coworkers) {
+        document.write(key + ':' + coworkers[key] + "<br>");
+    }
+</script>
+<h2>Property&Method</h2>
+Method : 객체에 소속된 함수
+Property : 객체에 소속된 변수
+<script>
+    coworkers.showAll = function () {
+        for (let key in this) {
+            document.write(key + ':' + this[key] + "<br>");
+        }
+    }
+    coworkers.showAll();
+    //=var showall = funtion(){}=funtion showall (){}, this는 객체의 이름이 바뀌어도 똑같이 동작한다. 해당 함수가 속한 객체를 가리키기 때문에.
+</script>
+</body>
+
+</html>
