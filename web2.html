@@ -21,41 +21,11 @@
   gtag('js', new Date());
 
   gtag('config', 'UA-167448738-1');
-</script>
-<script>
-  function setlinkcolor(color){
-    var links = document.querySelectorAll('a');
-      var i = 0
-      while (i < links.length) {
-        links[i].style.color = color;
-        i += 1;
-      }
-  }
-  function setbodycolor(color){
-    document.querySelector('body').style.color = color;
-  }
-  function setbodybackgroundcolor(color){
-    document.querySelector('body').style.backgroundColor = color;
-  }
-  function nightfunction(self) {
-    var changetage = document.querySelector('body')
-    if (self.value === 'night') {
-      Body.setbackgroundcolor('black');
-      Body.setcolor('white');
-      self.value = 'day';
-      link.setcolor('white');
-      }
+</script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-     else {
-      Body.setbackgroundcolor('white');
-      Body.setcolor('black');
-      self.value = 'night';
-      link.setcolor('black');
+<script src="color.js"></script>
 
-      }
-    }
-  
-</script>
+
 <title>WEB1-HTML</title>
 <meta charset="utf-8">
 </head>
