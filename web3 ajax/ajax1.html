@@ -1,0 +1,62 @@
+
+<!doctype html>
+<html>
+ <!--
+        검색시 추천 검색어를 접속시 html로 받는 것이라면 접속하는데 1년이 넘게
+        걸릴 것이다. 검색어 입력 때마다 서버와 통신 모든 페이지 다운로드하는게
+        매우 불편 때문에 웹페이지 리로드하지 않고 정보를 변경할 수 있는 기술 
+        ajax등장, 부분적으로 웹페이지 갱신
+        ex1)내용이 바뀌었는데 url이 안바뀐다.
+        ex2)웹페이지의 공통적인 부분을 바꾸어야 할 때 한 번만 바꾸어도 된다.
+        ex3)singlepageapplication- 하나의 페이지로 여러개의 정보를 나타낼 수 있는 애플리케이션
+    -->
+<head>
+    <style>
+        h1 {
+          width: 50%;
+          border: 1px solid #4CAF50;
+        }
+        .js{width: 50%;
+          border: 1px solid #4CAF50; 
+          font-weight: bold;
+          color: blue;}
+        #first{color: green;}
+        span{color: black;}
+        </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-167448738-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-167448738-1');
+</script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script src="color.js"></script>
+
+
+<title>WEB1-HTML</title>
+<meta charset="utf-8">
+</head>
+<body>
+    <h1 style="color: turquoise; background-color: coral;">js</h1>
+    
+   <input type="button" id="myBtn" value="night" onclick="
+  nightfunction(this)
+   ">
+
+<ol>
+    <li><a href="1.html">1</a></li>
+    <li><a href="2.html">2</a></li>
+    <li><a href="3.html">3</a></li>
+</ol>
+<input type="button" id="myBtn" value="night" onclick="
+nightfunction(this)
+   ">
+<p>
+    <span id="first" class="js">fhgjlsdkj</span> is my thing
+</p>
+</body>
+</body>
+</html>
