@@ -1,6 +1,6 @@
 # web2javascript
 web2javascript 강의 마스터
-#web3 ajax
+#web3 ajax--spa구현도구.
 fetch api :
 fetch()는 첫번째 인자 데이터 서버에 요청한다.
 then()는 서버가 적당한 데이터 꺼내서 응답해야 하는데 시간이 걸릴 수 있다. 
@@ -45,3 +45,13 @@ so 데이터를 분리해서 데이터가 바뀌었을 때 application을 뜯어
 fetchapi 지원하지 않는 브라우져에서 api사용하려면?? 호환성 확보하는 
 polyfill 과거의 브라우져를 쓰는 사람들도 기능 사용할 수 있도록 하는 것.
 이것을 사용하면 fetch가 구동하지 않는 브라우져에서도 사용할 수 있다.
+
+@@향후 공부할 만 한 것.
+#공부할 만 한 것 xml과 json초 
+이번 프로젝트와 같이 , 만으로 데이터를 표현하는 것이 어렵다면 xml, json을 활용해라.
+
+#spa--pjax pushstate +ajax
+검색엔진에게 발견되는 것이 중요한 프로젝트라면 pjax 사용하기.
+
+#progressive web app
+offline에서 동작 가능하다.
