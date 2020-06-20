@@ -1,3 +1,12 @@
+//showCurrentTime,
+//updateClock,showcurrenttime함수를 포함하고 있고 setInterval( updateClock, oneSecond);로 시간마다 수행되면서 시간을 계속 업로드해서 보여준다.
+//또한 wakeUpEvent,lunchEvent,napEvent시간마다 멘트와 사진 변화해서 보여준다. if문으로 구성되어있다. 
+//버튼을 눌러 party time이 time과 같아지면 사진과 멘트가 변한다. 
+//partyButton.addEventListener("click", partyEvent);
+//partyEvent(); 처음에 시행돼 partytime은 -1 로 저장되어 있다.. 
+//wakeUpEvent,lunchEvent,napEvent
+//napTimeSelector.addEventListener("change", napEvent);
+//selector의 값이 변화하면 시행된다.
 var wakeuptime = 7;
 var noon = 12;
 var lunchtime = 12;
