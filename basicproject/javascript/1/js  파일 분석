@@ -1,0 +1,18 @@
+showCurrentTime()
+id:clock에 시간을 표시한다.
+new Date()에서 시간을 받고 if문을 통해 am,pm, 1~9일 때 0붙여서 01,02,03 .. 으로 표시한다.
+
+
+updateClock()
+시간을 받아서 
+timeEventJS,lolcatImage 위치에 시간별 그림과 멘트를 받아 표시한다. ifelse사용
+setInterval( updateClock, oneSecond);을 통해 updateclock 지속적으로 실행
+
+partyEvent()
+처음 파일을 업로드 했을 때 -1을 넣고 partytime을 누르면 시간을 받는다. 시간을 받으면 updateclock에서 
+time==partytime이 되므로 그림과 멘트가 변한다. 
+partyButton.addEventListener("click", partyEvent);HTML 에서 PARTY TIME을 누르면 실행된다.
+
+wakeUpEvent(),lunchEvent(),napEvent()
+update clock안에 있는 wakeupime 등이 설정된다.
+napTimeSelector.addEventListener("change", napEvent); HTML의 TIME SELECTOR부분이 바뀌면 실행
