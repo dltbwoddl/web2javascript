@@ -1,6 +1,8 @@
 //산책타임 추가
 //var time = new Date().getHours(); gethours가 중요한 이유는 lunch, walktime 등의 변화에 즉각적으로 반응하기 위해서이다.
 //if else구문에서 noon, evening을 뒤에 둔 이유는 lunch,walktime 등 사용자가 입력한 정보를 우선적으로 반영하기 위해서이다.
+//현재 updateClock의 if else구문은 partytime>wakeuptime>lunchtime>naptime>walktime의 우선순위가 존재한다. 만약 naptime과
+//walktime을 같게 하면 naptime이 우선적으로 적용된다.
 var wakeuptime = 7;
 var noon = 12;
 var lunchtime = 12;
