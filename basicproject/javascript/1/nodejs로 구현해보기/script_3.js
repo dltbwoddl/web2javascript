@@ -1,14 +1,19 @@
 let title = ['set wake up', 'set Lunch Time', 'set Nap Time', 'set walk Time', '<input type="text" id="usertext">'];
+let weburl = ['setwakeup', 'setLunchTime', 'setNapTime', 'setwalkTime', 'setusertime'];
 let idd = ["wakeUpTimeSelector", "lunchTimeSelector", "napTimeSelector", "walktimeselector", "usertimeselector"];
 let iddd = ['wakeuptime', 'lunchtime', 'naptime', 'walktime', 'usertime'];
-
+var myFunction=function () {
+  document.getElementById("iidd").click()
+}
 for (i = 0; i < title.length; i++) {
   console.log(1);
   document.getElementById(idd[i]).innerHTML =
-    `${title[i]}
-    <select id=${iddd[i]}> 
+    `
+    ${title[i]}
+    <select id=${iddd[i]} name='time_${i}' form="myForm"
+    onchange="myFunction(${i})"> 
     <option value="1">1 AM - 2AM</option>
-      < option value = "2" > 2 AM - 3AM</option >
+      <option value = "2" > 2 AM - 3AM</option >
         <option value="3">3 AM - 4AM</option>
         <option value="4">4 AM - 5AM</option>
         <option value="5">5 AM - 6AM</option>
