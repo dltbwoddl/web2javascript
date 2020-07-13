@@ -1,3 +1,5 @@
+//데이터 다시 쓰기가 아니라 추가하고 다시 띄워주기.(전페이지로 이동해서 보여주는 것과 새로운 페이지로 이동하는 것)
+//->코드 모듈화해서 분리저장하기.
 var http = require('http');
 var fs = require('fs');
 var url = require('url');
@@ -41,16 +43,17 @@ template=function(cssfile, jsfile){
         <p>How many people are sharing the bill?</p>
         <input id="peopleamt" type="text" placeholder="Number of People"> people
         <button type="button" id="calculate">Calculate!</button>
-    
+      
       </div>
-      <!--calculator end-->
+      <!--calculator end-->      
+      <form method="post" id="dtip" action="http://localhost:3000/data">
       <div id="totalTip">
-        <sup>$</sup><span id="tip">0.00</span>
+        <sup>$</sup><input id="tip" type='text' name='tip' value=0 readonly>
         <small id="each">each</small>
       </div>
       <!--totalTip end-->
-    
     </div>
+    </form>
     <!--container end-->
     <script>${jsfile}</script>
 </body>
@@ -61,8 +64,33 @@ fs.readFile('./jscss/style.css', (err, data_1) => {
     fs.readFile('./jscss/tipcalculator.js', (err, data_2) => {
         var app = http.createServer(function (request, response) {
             template_1 = template(data_1, data_2);
+            var _url = request.url;
+            var pathname = url.parse(_url, true).pathname;
+            console.log(2)
             response.writeHead(200);
             response.end(template_1);
+            console.log(1);
+            if (pathname === '/data') {
+              console.log(100);
+              //post방식의 데이터 받기.
+              var body = '';
+              request.on('data', function (data) {
+                console.log(101);
+                  body = body + data;
+                  console.log(body);
+              });
+              request.on('end', function () {
+                  var post = qs.parse(body);
+                  var title = post.tip;
+                  fs.writeFile(`data/tip`, title, 'utf-8'
+                      , function (err) {
+        
+                          response.writeHead(302, {location:"http://localhost:3000"});
+                          response.end();
+                      })
+              });
+        
+          }
         }
         )
 app.listen(3000);

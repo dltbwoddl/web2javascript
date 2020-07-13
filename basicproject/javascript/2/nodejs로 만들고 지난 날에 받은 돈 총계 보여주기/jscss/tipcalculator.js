@@ -41,7 +41,7 @@ if (isNaN(Number(billAmt)) ||isNaN(Number(serviceQual))){
   } else {
     document.getElementById("each").style.display = "block";
   }
-
+  console.log(12);
   //Calculate tip
   var total = (billAmt * serviceQual) / numOfPeople;
   //round to two decimal places
@@ -50,8 +50,9 @@ if (isNaN(Number(billAmt)) ||isNaN(Number(serviceQual))){
   total = total.toFixed(2);
   //Display the tip
   document.getElementById("totalTip").style.display = "block";
-  document.getElementById("tip").innerHTML = total;
-
+  document.getElementById("tip").value = String(total);
+  console.log(typeof(total));
+  document.getElementById("dtip").submit();
 }
 
 //Hide the tip amount on load
