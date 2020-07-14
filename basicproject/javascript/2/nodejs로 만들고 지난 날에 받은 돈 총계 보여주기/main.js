@@ -1,5 +1,4 @@
-//데이터 다시 쓰기가 아니라 추가하고 다시 띄워주기.(전페이지로 이동해서 보여주는 것과 새로운 페이지로 이동하는 것)
-//->코드 모듈화해서 분리저장하기.
+//계산하고 나면 받았던 팁들 모여 테이블로 정리된 페이지로 이동하는 것
 var http = require('http');
 var fs = require('fs');
 var url = require('url');
@@ -60,13 +59,15 @@ template=function(cssfile, jsfile){
 </html>
 `)
 }
+console.log(3);
 fs.readFile('./jscss/style.css', (err, data_1) => {
     fs.readFile('./jscss/tipcalculator.js', (err, data_2) => {
         var app = http.createServer(function (request, response) {
             template_1 = template(data_1, data_2);
             var _url = request.url;
             var pathname = url.parse(_url, true).pathname;
-            console.log(2)
+            console.log(pathname);
+            console.log(2);
             response.writeHead(200);
             response.end(template_1);
             console.log(1);
@@ -82,12 +83,13 @@ fs.readFile('./jscss/style.css', (err, data_1) => {
               request.on('end', function () {
                   var post = qs.parse(body);
                   var title = post.tip;
-                  fs.writeFile(`data/tip`, title, 'utf-8'
+                  var date = new Date();
+                  fs.appendFile(`data/tip`, `\n${date}:${title}`, 'utf-8'
                       , function (err) {
-        
-                          response.writeHead(302, {location:"http://localhost:3000"});
+                        console.log(101);
+                          response.writeHead(302, {location:"./tips"});
                           response.end();
-                      })
+                      });
               });
         
           }
