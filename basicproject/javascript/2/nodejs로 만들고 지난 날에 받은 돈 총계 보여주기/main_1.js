@@ -1,12 +1,12 @@
-//계산하고 나면 받았던 팁들 모여 테이블로 정리된 페이지로 이동하는 것
+//.tip까지 이동하는 것까지는 성공, 구동 순서 원리 확실히 이해하고 데이터 띄우는 페이지 만들고 띄우기.
 var http = require('http');
 var fs = require('fs');
 var url = require('url');
 var qs = require('querystring');
 var path = require('path')
 template1 = function (cssfile, jsfile) {
-  return (
-    `
+    return (
+        `
     <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,58 +61,73 @@ template1 = function (cssfile, jsfile) {
 
 }
 template2 = function () {
-  fs.readFile("./data/tip", (err, tipdata) => {
-    return (
-      `${tipdata}`
-    )
-  })
+    fs.readFile("./data/tip", (err, tipdata) => {
+        console.log(tipdata);
+        return (
+            `
+            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>${tipdata}</p>
+</body>
+</html>`
+        )
+    })
 }
 console.log(3);
-fs.readFile('./jscss/style.css', (err, data_1) => {console.log(10);
-  fs.readFile('./jscss/tipcalculator.js', (err, data_2) => {console.log(20);
-    var app = http.createServer(function (request, response) {
-      console.log(30);
-      template_1 = template1(data_1, data_2);
-      var _url = request.url;
-      var pathname = url.parse(_url, true).pathname;
-      if (pathname == "/") {
-        console.log(pathname);
-        console.log(2);
-        response.writeHead(200);
-        response.end(template_1);
-        console.log(1);
-      }
-      else if (pathname === '/data') {
+var app = http.createServer(function (request, response) {
+    var _url = request.url;
+    var pathname = url.parse(_url, true).pathname;
+    console.log("abs")
+    console.log(pathname);
+    if (pathname === "/") {
+        fs.readFile('./jscss/style.css', (err, data_1) => {
+            fs.readFile('./jscss/tipcalculator.js', (err, data_2) => {
+                template_1 = template1(data_1, data_2);
+                console.log(pathname);
+                console.log(2);
+                response.writeHead(200);
+                response.end(template_1);
+                console.log(1);
+            })
+        })
+    }
+    else if (pathname === '/data') {
         console.log(100);
         //post방식의 데이터 받기.
         var body = '';
         request.on('data', function (data) {
-          console.log(101);
-          body = body + data;
-          console.log(body);
+            console.log(101);
+            body = body + data;
+            console.log(body);
         });
         request.on('end', function () {
-          var post = qs.parse(body);
-          var title = post.tip;
-          var date = new Date();
-          fs.appendFile(`data/tip`, `\n${date}:${title}`, 'utf-8'
-            , function (err) {
-              console.log(101);
-              response.writeHead(302, { location: "./tips" });
-              response.end();
-            });
+            var post = qs.parse(body);
+            var title = post.tip;
+            var date = new Date();
+            fs.appendFile(`data/tip`, `\n${date}:${title}`, 'utf-8'
+                , function (err) {
+                    console.log(102);
+                    response.writeHead(302, { location: "./tips" });
+                    console.log(103);
+                    response.end();
+                    console.log(104);
+                });
         });
 
-      }
-      else if (pathname = "./tips") {
+    }
+    else if (pathname === "/tips") {
         console.log(pathname);
         console.log(10);
         response.writeHead(200);
         template_2 = template2();
         response.end(template_2);
-      }
     }
-    )
-    app.listen(3000);
-  });
+    console.log(1000);
 });
+app.listen(3000);
